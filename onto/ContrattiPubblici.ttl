@@ -1,0 +1,436 @@
+@prefix : <http://localhost:8080/ContrattiPubblici#> .
+@prefix ocm2: <http://www.external.it/ocm2#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix swrl: <http://www.w3.org/2003/11/swrl#> .
+@prefix swrlb: <http://www.w3.org/2003/11/swrlb#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://localhost:8080/ContrattiPubblici> a owl:Ontology ;
+    owl:versionIRI <http://localhost:8080/1.0> .
+
+:ANAC_detiene_AnagrafeUnicaStazioniAppaltanti a owl:ObjectProperty ;
+    rdfs:domain <http://localhost:8080/StruttureOrganizzative#ANAC> ;
+    rdfs:range :Anagrafe_Unica_Stazioni_Appaltanti .
+
+:ANAC_responsabile_di_PubblicazioneElencoSoggettiAggregatori a owl:ObjectProperty ;
+    rdfs:domain <http://localhost:8080/StruttureOrganizzative#ANAC> ;
+    rdfs:range <http://localhost:8080/Processi#Pubblicazione_Elenco_Soggetti_Aggregatori> .
+
+:Ambito_Codice_Ambito a owl:DatatypeProperty ;
+    ocm2:status "Draft"^^xsd:string ;
+    ocm2:vertical_lineage "SA.SA_DIZ_AMBITO.ID_AMBITO (Colonna)"^^xsd:string ;
+    rdfs:comment "Identificativo dell'ambito."^^xsd:string ;
+    rdfs:domain :Ambito .
+
+:Ambito_Descrizione_Ambito a owl:DatatypeProperty ;
+    ocm2:status "Draft"^^xsd:string ;
+    rdfs:comment """Descrizione testuale dell'ambito. I possibili valori sono : 
+
+
+- Pubbliche Amministrazioni Centrali e Periferiche dello Stato;
+
+
+- Regionale (le regioni, gli enti regionali, nonche' loro consorzi e associazioni);
+
+
+- Sanitario (gli enti del servizio sanitario nazionale). 
+
+
+- Enti Locali di cui all'articolo 2 del decreto legislativo 18 agosto 2000, n. 267 (comuni, province, citta' metropolitane, comunita' montane, comunita' isolane e unioni di comuni)."""^^xsd:string ;
+    rdfs:domain :Ambito .
+
+:AnagrafeUnicaStazioniAppaltanti_censisce_StazioneAppaltante a owl:ObjectProperty ;
+    rdfs:domain :Anagrafe_Unica_Stazioni_Appaltanti ;
+    rdfs:range <http://localhost:8080/StruttureOrganizzative#Stazione_Appaltante> .
+
+:Area_Portale_Pubblica a owl:Class ;
+    ocm2:status "Draft"^^xsd:string ;
+    rdfs:comment "Area pubblica del portale dei soggetti aggregatori."^^xsd:string ;
+    rdfs:subClassOf :Area_Portale .
+
+:Art.33terDL18102012_regola_ContrattiPubblici_AnagrafeUnicaStazioniAppaltanti a owl:ObjectProperty ;
+    rdfs:domain <http://localhost:8080/RiferimentiNormativi#Art.33_ter_DL_18_10_2012> ;
+    rdfs:range :Anagrafe_Unica_Stazioni_Appaltanti .
+
+:Art.9DLn.662014_istituisce_SoggettoAggregatore a owl:ObjectProperty ;
+    rdfs:domain <http://localhost:8080/RiferimentiNormativi#Art.9_DLn.66_2014> ;
+    rdfs:range <http://localhost:8080/StruttureOrganizzative#Soggetto_Aggregatore> .
+
+:CodificaMerceologica_Codice_CND a owl:DatatypeProperty ;
+    ocm2:status "Draft"^^xsd:string ;
+    rdfs:comment "E il codice merceologico che si utilizza per la categorizzazione dei dispositivi medici."^^xsd:string ;
+    rdfs:domain :Codifica_Merceologica .
+
+:CodificaMerceologica_Codice_CPV a owl:DatatypeProperty ;
+    ocm2:status "Draft"^^xsd:string ;
+    ocm2:vertical_lineage "SA.SA_DIZ_CPV.CPV (Colonna)"^^xsd:string ;
+    rdfs:comment "Codice CPV dell oggetto dell'iniziativa o del lotto derivante dal sistema di classificazione unico per gli appalti pubblici volto a unificare i riferimenti utilizzati dalle amministrazioni e dagli enti appaltanti per la descrizione dell'oggetto degli appalti (rif. SIMAP)."^^xsd:string ;
+    rdfs:domain :Codifica_Merceologica .
+
+:CodificaMerceologica_Codice_CPV_Prevalente a owl:DatatypeProperty ;
+    rdfs:domain :Codifica_Merceologica .
+
+:Contratto_Data_Chiusura_Contratto a owl:DatatypeProperty ;
+    rdfs:comment "Data di chiusura del contratto per sua scadenza naturale, per esaurimento del massimale o risoluzione del contratto."^^xsd:string ;
+    rdfs:domain :Contratto .
+
+:Contratto_Data_Sospensione_Contratto a owl:DatatypeProperty ;
+    rdfs:comment "Data di sospensione del contratto (rif. art. 107 comma 7)."^^xsd:string ;
+    rdfs:domain :Contratto .
+
+:DPCM11072018_regola_ContrattiPubblici_CategoriaMerceologicaDPCM a owl:ObjectProperty ;
+    rdfs:domain <http://localhost:8080/RiferimentiNormativi#DPCM_11_07_2018> ;
+    rdfs:range :Categoria_Merceologica_DPCM .
+
+:ElencoSoggettiAggregatori_elenca_SoggettoAggregatore a owl:ObjectProperty ;
+    rdfs:domain :Elenco_Soggetti_Aggregatori ;
+    rdfs:range <http://localhost:8080/StruttureOrganizzative#Soggetto_Aggregatore> .
+
+:Iniziativa_CAM a owl:DatatypeProperty ;
+    rdfs:comment "Indica se per l'iniziativa sono definiti criteri ambientali minimi volti a individuare il prodotto o il servizio migliore sotto il profilo ambientale lungo il ciclo di vita."^^xsd:string ;
+    rdfs:domain :Iniziativa .
+
+:Iniziativa_Data_Prevista_Pubblicazione a owl:DatatypeProperty ;
+    rdfs:comment "Data di prevista pubblicazione conosciuta in fase di programmazione."^^xsd:string ;
+    rdfs:domain :Iniziativa .
+
+:Iniziativa_Data_Stato_Iniziativa a owl:DatatypeProperty ;
+    rdfs:comment "Data di riferimento dello stato in cui si trova l'iniziativa."^^xsd:string ;
+    rdfs:domain :Iniziativa .
+
+:Iniziativa_Durata_Iniziativa_Prevista a owl:DatatypeProperty ;
+    rdfs:comment "Prevista durata temporale in cui l'iniziativa e' disponibile per effettuare acquisti, il valore e' espresso in mesi."^^xsd:string ;
+    rdfs:domain :Iniziativa .
+
+:Iniziativa_Id_Gara a owl:DatatypeProperty ;
+    rdfs:comment "Codice identificativo dell'iniziativa rilasciato da SIMOG."^^xsd:string ;
+    rdfs:domain :Iniziativa .
+
+:Iniziativa_Link_Iniziativa a owl:DatatypeProperty ;
+    rdfs:comment "Indica la URL alla pagina web di dettaglio dei dati dell'iniziativa del soggetto aggregatore disponibile su Internet sul sito del committente."^^xsd:string ;
+    rdfs:domain :Iniziativa .
+
+:Iniziativa_Nome_Iniziativa a owl:DatatypeProperty ;
+    rdfs:comment "Denominazione dell'iniziativa di acquisizione. Questa dovra' coincidere con il nome dell'Iniziativa presente sul sito internet del Soggetto Aggregatore."^^xsd:string ;
+    rdfs:domain :Iniziativa .
+
+:Iniziativa_Oggetto_Iniziativa a owl:DatatypeProperty ;
+    rdfs:comment "Descrizione dettagliata dell'oggetto dell'iniziativa."^^xsd:string ;
+    rdfs:domain :Iniziativa .
+
+:Iniziativa_Valore_Stimato_Iniziativa a owl:DatatypeProperty ;
+    rdfs:comment "Indica il valore stimato dell'iniziativa in euro conosciuto in fase di programmazione.  Viene calcolato come la somma dei valori di : Stima Base d'asta, Stima Costi non soggetti a ribasso e Stima opzioni (Art. 35 comma 4, DL 50/2016 e s.m.i.)."^^xsd:string ;
+    rdfs:domain :Iniziativa .
+
+:Iniziativa_realizzata_tramite_Strumento a owl:ObjectProperty ;
+    ocm2:vertical_lineage "SA.SA_DATI.ID_STRUMENTO_VFK (Colonna)"^^xsd:string ;
+    rdfs:domain :Iniziativa ;
+    rdfs:range :Strumento .
+
+:Lotto_Codice_CIG a owl:DatatypeProperty ;
+    rdfs:comment "Codice identificativo univoco del lotto di gara o in ogni caso della procedura di affidamento indipendentemente dalla modalita  di scelta del contraente."^^xsd:string ;
+    rdfs:domain :Lotto .
+
+:Lotto_Importo_Aggiudicato a owl:DatatypeProperty ;
+    rdfs:comment "Importo aggiudicato dal singolo operatore economico aggiudicatario per il lotto di riferimento. "^^xsd:string ;
+    rdfs:domain :Lotto .
+
+:Lotto_Importo_Base_Asta a owl:DatatypeProperty ;
+    rdfs:comment "Indica il valore del lotto in euro: Base d'asta + Costi non soggetti a ribasso +opzioni (Art. 35 comma 4, DL50/2016 e s.m.i.). "^^xsd:string ;
+    rdfs:domain :Lotto .
+
+:Lotto_Oggetto_Lotto a owl:DatatypeProperty ;
+    rdfs:comment "Descrizione testuale dell'oggetto del lotto."^^xsd:string ;
+    rdfs:domain :Lotto .
+
+:Lotto_ha_AmbitoTerritoriale a owl:ObjectProperty ;
+    rdfs:domain :Lotto ;
+    rdfs:range :Ambito_Territoriale .
+
+:PianoDelleIniziative_contiene_Iniziativa a owl:ObjectProperty ;
+    rdfs:domain :Piano_Delle_Iniziative ;
+    rdfs:range :Iniziativa .
+
+:PianoDelleIniziative_viene_pubblicato_PortaleSA a owl:ObjectProperty ;
+    rdfs:domain :Piano_Delle_Iniziative ;
+    rdfs:range :Portale_SA .
+
+:PortaleSA_ha_AreaPortale a owl:ObjectProperty ;
+    rdfs:domain :Portale_SA ;
+    rdfs:range :Area_Portale .
+
+:PubblicazioneElencoSoggettiAggregatori_conforme_con_DPCM11112014 a owl:ObjectProperty ;
+    rdfs:domain <http://localhost:8080/Processi#Pubblicazione_Elenco_Soggetti_Aggregatori> ;
+    rdfs:range <http://localhost:8080/RiferimentiNormativi#DPCM_11_11_2014> .
+
+:PubblicazioneElencoSoggettiAggregatori_pubblica_ElencoSoggettiAggregatori a owl:ObjectProperty ;
+    rdfs:domain <http://localhost:8080/Processi#Pubblicazione_Elenco_Soggetti_Aggregatori> ;
+    rdfs:range :Elenco_Soggetti_Aggregatori .
+
+:SoggettoAggregatoreBeneficiario_beneficia_di_Lotto a owl:ObjectProperty ;
+    ocm2:vertical_lineage "SA.SA_LOTTI_BENEFICIARI (Tabella)"^^xsd:string ;
+    rdfs:domain <http://localhost:8080/StruttureOrganizzative#Soggetto_Aggregatore_Beneficiario> ;
+    rdfs:range :Lotto .
+
+:SoggettoAggregatore_ha_AreaGeografica a owl:ObjectProperty ;
+    rdfs:domain <http://localhost:8080/StruttureOrganizzative#Soggetto_Aggregatore> ;
+    rdfs:range :Area_Geografica .
+
+:SoggettoAggregatore_responsabile_di_PubblicazioneElencoSoggettiAggregatori a owl:ObjectProperty ;
+    rdfs:domain <http://localhost:8080/StruttureOrganizzative#Soggetto_Aggregatore> ;
+    rdfs:range <http://localhost:8080/Processi#Pubblicazione_Elenco_Soggetti_Aggregatori> .
+
+:StatoIniziativa_Id_Stato_Iniziativa a owl:DatatypeProperty ;
+    rdfs:comment "Identificativo dello stato dell'iniziativa."^^xsd:string ;
+    rdfs:domain :Stato_Iniziativa .
+
+:StatoIniziativa_dipende_da_StatoLotto a owl:ObjectProperty ;
+    rdfs:domain :Stato_Iniziativa ;
+    rdfs:range :Stato_Lotto .
+
+:StatoLotto_Id_Stato_Lotto a owl:DatatypeProperty ;
+    rdfs:comment "Identificativo dello stato del lotto."^^xsd:string ;
+    rdfs:domain :Stato_Lotto .
+
+:Strumento_Codice_Strumento a owl:DatatypeProperty ;
+    rdfs:comment "Codice che identifica univocamente lo strumento di acquisto."^^xsd:string ;
+    rdfs:domain :Strumento .
+
+:Strumento_Descrizione_Strumento a owl:DatatypeProperty ;
+    rdfs:comment """Descrizione testuale dello strumento, i possibili valori sono : 
+- Appalto Specifico di Accordo Quadro
+- Appalto specifico di Sistema Dinamico di Acquisizione
+- Bando Istitutivo di Sistema Dinamico di Acquisizione
+- Convenzione 
+- Gara su delega
+- Accordo Quadro"""^^xsd:string ;
+    rdfs:domain :Strumento .
+
+:Utente_accede_AreaPortalePrivata a owl:ObjectProperty ;
+    rdfs:domain :Utente ;
+    rdfs:range :Area_Portale_Privata .
+
+:Utente_ha_RuoloUtente a owl:ObjectProperty ;
+    rdfs:domain :Utente ;
+    rdfs:range :Ruolo_Utente .
+
+:Ambito_Territoriale a owl:Class ;
+    rdfs:comment "Ambito territoriale a cui e' rivolto un lotto. Puo' essere rappresentato da un insieme di comuni, province, zone geografiche, etc."^^xsd:string .
+
+:Area_Geografica a owl:Class ;
+    rdfs:comment "Area territoriale  di competenza di un soggetto aggregatore."^^xsd:string .
+
+:Area_Portale_Privata a owl:Class ;
+    rdfs:comment "Area privata del portale dei soggetti aggregatori."^^xsd:string ;
+    rdfs:subClassOf :Area_Portale .
+
+:CodificaMerceologica_Codice_ATC a owl:DatatypeProperty ;
+
+    rdfs:comment "Il codice ATC viene usato per la classificazione sistematica dei farmaci ed e' controllato dall'Organizzazione mondiale della sanita'. Il codice ATC e' un sistema di classificazione di tipo alfanumerico che suddivide i farmaci in base a uno schema costituito da 5 livelli gerarchici."^^xsd:string ;
+    rdfs:domain :Codifica_Merceologica .
+
+:Contratto_Durata_Contratto a owl:DatatypeProperty ;
+    rdfs:comment "Durata del contratto attuativo per il lotto di riferimento. Tale durata e' espressa in mesi."^^xsd:string ;
+    rdfs:domain :Contratto .
+
+:Iniziativa_Data_Prevista_Attivazione a owl:DatatypeProperty ;
+    rdfs:comment "E' la data di prevista efficacia del contratto in cui le amministrazioni possono effettivamente disporre di almeno un lotto dell'iniziativa o nel caso del bando istitutivo SDA possono effettuare appalti specifici."^^xsd:string ;
+    rdfs:domain :Iniziativa .
+
+:Iniziativa_Numero_Lotti a owl:DatatypeProperty ;
+   rdfs:comment "Indica il numero di lotti in cui e' suddivisa l'iniziativa."^^xsd:string ;
+    rdfs:domain :Iniziativa .
+
+:Iniziativa_Valore_Aggiudicato a owl:DatatypeProperty ;
+    rdfs:comment "Indica il valore in euro aggiudicato per l iniziativa."^^xsd:string ;
+    rdfs:domain :Iniziativa .
+
+:Lotto_Data_Prevista_Attivazione a owl:DatatypeProperty ;
+    rdfs:comment "Data prevista del passaggio di stato del lotto in Attivo."^^xsd:string ;
+    rdfs:domain :Lotto .
+
+:Lotto_Durata_Lotto a owl:DatatypeProperty ;
+    rdfs:comment "Indica il numero di mesi della durata del lotto"^^xsd:string ;
+    rdfs:domain :Lotto .
+
+:Lotto_Importo_Aggiudicato___sum a owl:DatatypeProperty .
+
+:Lotto_aggiudicato_a_OperatoreEconomicoAggiudicatario a owl:ObjectProperty ;
+    rdfs:domain :Lotto .
+
+:Lotto_ha_Ambito a owl:ObjectProperty ;
+    rdfs:domain :Lotto ;
+    rdfs:range :Ambito .
+
+:Lotto_si_riferisce_a_Contratto a owl:ObjectProperty ;
+    rdfs:domain :Lotto ;
+    rdfs:range :Contratto .
+
+:Ruolo_Utente a owl:Class ;
+    rdfs:comment "Ruolo dell'utente che accede al portale dei soggetti aggregatori. I ruoli che possono essere associati agli utenti sono: Referente Soggetto Aggregatore, Referente Dati Soggetto Aggregatore, Referente DM Fondo."^^xsd:string .
+
+:TipoLotto_Descrizione_Tipo_Lotto a owl:DatatypeProperty ;
+    rdfs:comment "Descrizione testuale del tipo lotto. I possibili valori sono:  Lotti Territoriali, Lotti Funzionali/Merceologici, Lotti Prestazionali, Lotti Misti."^^xsd:string ;
+    rdfs:domain :Tipo_Lotto .
+
+<http://localhost:8080/RiferimentiNormativi#Art.33_ter_DL_18_10_2012> a owl:Class .
+
+<http://localhost:8080/RiferimentiNormativi#Art.9_DLn.66_2014> a owl:Class .
+
+<http://localhost:8080/RiferimentiNormativi#DPCM_11_07_2018> a owl:Class .
+
+<http://localhost:8080/RiferimentiNormativi#DPCM_11_11_2014> a owl:Class .
+
+<http://localhost:8080/StruttureOrganizzative#Operatore_Economico_Aggiudicatario> a owl:Class .
+
+<http://localhost:8080/StruttureOrganizzative#Soggetto_Aggregatore_Beneficiario> a owl:Class .
+
+<http://localhost:8080/StruttureOrganizzative#Stazione_Appaltante> a owl:Class ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:unionOf ( <http://localhost:8080/StruttureOrganizzative#Stazione_appaltante_con_obblighi_DPCM> <http://localhost:8080/StruttureOrganizzative#Stazione_appaltante_senza_obblighi_DPCM> ) ],
+        [ a owl:Class ;
+            owl:unionOf ( <http://localhost:8080/StruttureOrganizzative#Stazione_Appaltante_Con_Qualifica> <http://localhost:8080/StruttureOrganizzative#Stazione_Appaltante_Senza_Qualifica> ) ] .
+
+<http://localhost:8080/StruttureOrganizzative#Stazione_Appaltante_Con_Qualifica> a owl:Class ;
+    owl:disjointWith <http://localhost:8080/StruttureOrganizzative#Stazione_Appaltante_Senza_Qualifica> .
+
+<http://localhost:8080/StruttureOrganizzative#Stazione_appaltante_con_obblighi_DPCM> a owl:Class ;
+    owl:disjointWith <http://localhost:8080/StruttureOrganizzative#Stazione_appaltante_senza_obblighi_DPCM> .
+
+:Categoria_Merceologica_DPCM a owl:Class ;
+    rdfs:comment """Categoria merceologica individuata ai sensi del DPCM del 11/07/2018. 
+Per tali categorie l'Anac non rilascia il codice identificativo di gara (il cosiddetto CIG) alle amministrazioni che acquistano al di fuori del sistema dei soggetti aggregatori. L'obbligo di utilizzare la rete dei soggetti aggregatori per determinati acquisti e' rivolto alle amministrazioni statali, agli enti del SSN e agli enti locali in senso ampio."""^^xsd:string ;
+    owl:disjointWith :Categoria_Merceologica_No_DPCM .
+
+:Categoria_Merceologica_No_DPCM a owl:Class ;
+    rdfs:comment "Categoria merceologica non appartenente a quelle individuate ai sensi del DPCM del 11/07/2018."^^xsd:string .
+
+:Elenco_Soggetti_Aggregatori a owl:Class ;
+    rdfs:comment "Nell'ambito dell'Anagrafe unica delle stazioni appaltanti, operante presso l'Autorita' Nazionale Anticorruzione, e' istituito l'Elenco dei soggetti aggregatori di cui fanno parte Consip S.p.A. e una centrale di committenza per ciascuna Regione, qualora costituita ai sensi dell'articolo 1, comma 455, della legge 27 dicembre 2006, n. 296."^^xsd:string .
+
+:Iniziativa_ha_Ambito a owl:ObjectProperty ;
+    rdfs:range :Ambito .
+
+:Iniziativa_ha_CategoriaMerceologica a owl:ObjectProperty ;
+    rdfs:range :Categoria_Merceologica .
+
+:Lotto_ha_CodificaMerceologica a owl:ObjectProperty ;
+    rdfs:range :Codifica_Merceologica .
+
+:Piano_Delle_Iniziative a owl:Class ;
+    rdfs:comment "Il Piano delle iniziative rappresenta l'insieme di tutte le iniziative di acquisto aggregate dei Soggetti Aggregatori, inerenti le categorie merceologiche di beni e servizi di cui al DPCM 11 luglio 2018"^^xsd:string .
+
+:Portale_SA a owl:Class ;
+    rdfs:comment "Portale dei Soggetti Aggregatori. Il portale ha un'area pubblica e una privata. All'area privata del portale possono accedere solo gli utenti con determinati ruoli (es: Referente Soggetto Aggregatore, Referente Dati Soggetto Aggregatore, Referente DM Fondo)"^^xsd:string .
+
+:SoggettoAggregatore_bandisce_Iniziativa a owl:ObjectProperty ;
+    rdfs:domain <http://localhost:8080/StruttureOrganizzative#Soggetto_Aggregatore> .
+
+:TipoLotto_Codice_Tipo_Lotto a owl:DatatypeProperty ;
+    rdfs:comment "Codice della natura dei criteri con cui i lotti dell'iniziativa sono stati suddivisi."^^xsd:string .
+
+:Utente a owl:Class ;
+    rdfs:comment "Utente che accede al portale dei soggetti aggregatori. Ogni utente accede al portale con un ruolo (es: Referente Soggetto Aggregatore, Referente Dati Soggetto Aggregatore, Referente DM Fondo)."^^xsd:string .
+
+<http://localhost:8080/StruttureOrganizzative#ANAC> a owl:Class .
+
+<http://localhost:8080/StruttureOrganizzative#Stazione_Appaltante_Senza_Qualifica> a owl:Class .
+
+<http://localhost:8080/StruttureOrganizzative#Stazione_appaltante_senza_obblighi_DPCM> a owl:Class .
+
+:Anagrafe_Unica_Stazioni_Appaltanti a owl:Class ;
+    rdfs:comment "Anagrafe Unica delle Stazioni Appaltanti (AUSA). Istituita ai sensi dell'art.33 ter del D.Lgs n.179/12"^^xsd:string .
+
+:Area_Portale a owl:Class ;
+    rdfs:comment "Area del portale dei soggetti aggregatori. Il portale ha un'area pubblica e un'area privata a cui possono accedere solo utenti con credenziali e ruoli. "^^xsd:string .
+
+:CategoriaMerceologica_Codice_Categoria a owl:DatatypeProperty ;
+    rdfs:comment "Codice che identifica univocamente una categoria merceologica DPCM (sequenziale corrispondente alla numerazione inserita nel DPCM del 11/07/2018)."^^xsd:string .
+
+:Iniziativa_ha_TipoLotto a owl:ObjectProperty ;
+    rdfs:range :Tipo_Lotto .
+
+:Lotto_ha_CategoriaMerceologica a owl:ObjectProperty ;
+    rdfs:range :Categoria_Merceologica .
+
+:Strumento a owl:Class ;
+    rdfs:comment "Strumento a disposizione dei Soggetti Aggregatori per la realizzazione delle iniziative di acquisto."^^xsd:string .
+
+:Tipo_Lotto a owl:Class ;
+    rdfs:comment "Tipologia dei lotti in cui e' suddivisa l'iniziativa. "^^xsd:string .
+
+<http://localhost:8080/Processi#Pubblicazione_Elenco_Soggetti_Aggregatori> a owl:Class .
+
+:Contratto a owl:Class ;
+    rdfs:comment "Il contratto attuativo che si stipula tra la stazione appaltante qualificata e uno o piu opeatori economici aggiudicatari dell iniziativa."^^xsd:string .
+
+:Lotto___listnotContrattiPubblici_Iniziativa a owl:Class .
+
+<http://localhost:8080/StruttureOrganizzative#Soggetto_Aggregatore> a owl:Class .
+
+:Ambito a owl:Class ;
+    rdfs:comment "L'ambito identifica l'insieme degli enti a cui e' rivolta l'iniziativa o il lotto."^^xsd:string .
+
+:Categoria_Merceologica a owl:Class ;
+    rdfs:comment "Categoria merceologica cui si riferisce l'iniziativa o il lotto. Esistono categorie merceologiche da DPCM  e non da DPCM: le prime sono quelle individuate ai sensi del DPCM del 11/07/2018 e sono quelle per cui le amministrazioni statali, gli enti del SSN e gli enti locali in senso ampio hanno l'obbligo di utilizzare la rete dei soggetti aggregatori per determinati acquisti."^^xsd:string ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:unionOf ( :Categoria_Merceologica_DPCM :Categoria_Merceologica_No_DPCM ) ] .
+
+:Codifica_Merceologica a owl:Class ;
+    rdfs:comment """La codifica merceologica identifica l'oggetto di fornitura e/o di servizi  dell'iniziativa e dei suoi lotti. 
+Tale codifica utilizza diversi sistemi di classificazione unici e standard per gli appalti pubblici volti a unificare i riferimenti utilizzati dalle amministrazioni e dagli enti appaltanti per la descrizione dell'oggetto degli appalti."""^^xsd:string .
+
+:StatoIniziativa_Descrizione_Stato_Iniziativa a owl:DatatypeProperty ;
+    rdfs:comment """Descrizione testuale dello stato in cui si trova l'iniziativa. I possibili valori sono :
+
+
+- In programmazione 
+- Bandita 
+- Aggiudicata 
+- Attiva 
+- Chiusa
+- Sospesa 
+- Revocata 
+- Cancellata"""^^xsd:string ;
+    rdfs:domain :Stato_Iniziativa .
+
+:Iniziativa_ha_StatoIniziativa a owl:ObjectProperty ;
+    ocm2:vertical_lineage "SA.SA_DATI.ID_STATO_INIZIATIVA_VFK (Colonna)"^^xsd:string ;
+    rdfs:range :Stato_Iniziativa .
+
+:Lotto___listContrattiPubblici_Iniziativa a owl:Class .
+
+:StatoLotto_Descrizione_Stato_Lotto a owl:DatatypeProperty ;
+    rdfs:comment """Descrizione testuale dello stato del lotto. I possibili valori sono : 
+- Bandito
+- Attivo
+- Aggiudicato
+- Sospeso
+- Chiuso
+- Revocato"""^^xsd:string ;
+    rdfs:domain :Stato_Lotto .
+
+:Stato_Iniziativa a owl:Class ;
+    rdfs:comment "Stato in cui si trova l iniziativa. "^^xsd:string .
+
+:var7 a swrl:Variable .
+
+:Lotto_ha_StatoLotto a owl:ObjectProperty ;
+    rdfs:range :Stato_Lotto .
+
+:Stato_Lotto a owl:Class ;
+    rdfs:comment "Stato in cui si trova il lotto. "^^xsd:string .
+
+:Iniziativa_suddivisa_in_Lotto a owl:ObjectProperty ;
+    rdfs:domain :Iniziativa .
+
+
+:Lotto a owl:Class ;
+    rdfs:comment "Suddivisione in cui puo' essere espletata un'iniziativa per la fornitura di beni e servizi. Le iniziative non suddivise in lotti si dicono iniziative a lotto unico e hanno un solo lotto associato."^^xsd:string .
+
+
+:Iniziativa a owl:Class ;
+    rdfs:comment "Le iniziative di Acquisto dei Soggetti Aggregatori, tutte le iniziative che vengono pubblicate richiedono l avvio di una procedura di affidamento."^^xsd:string .
+

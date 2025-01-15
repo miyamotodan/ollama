@@ -1,0 +1,8 @@
+
+FROM llama3.2
+PARAMETER num_ctx 10000
+PARAMETER seed 12345
+PARAMETER temperature 0.0
+SYSTEM """
+"""
+    

@@ -2,17 +2,9 @@ import { Ollama } from 'ollama';
 import fs from 'fs';
 import { publishRDF } from './publishRDF.js';
 import dotenv from 'dotenv';
-dotenv.config();
+//dotenv.config();
 
-// Instanzia Ollama
-var ollama;
-if(process.env.OLLAMA_URL)
-    ollama = new Ollama({ host: process.env.OLLAMA_URL}) // remote
-else
-    ollama = new Ollama(); // Locale (default)
-
-
-async function chatWithStreaming(model, messages) {
+async function chatWithStreaming(ollama, model, messages) {
     let res = "";
 
     try {
@@ -36,7 +28,7 @@ async function chatWithStreaming(model, messages) {
     }
 }
 
-async function chatWithoutStreaming(model, messages) {
+async function chatWithoutStreaming(ollama, model, messages) {
     try {
         const response = await ollama.chat({
             model, // Nome del modello
@@ -52,21 +44,34 @@ async function chatWithoutStreaming(model, messages) {
     }
 }
 
-// Esempio di utilizzo
-const modelName = process.env.OLLAMA_MODEL_TO; // Nome del modello
-const userMessages = [
-    {
-        role: 'user',
-        content: fs.readFileSync(process.env.OLLAMA_PROMPT, 'utf8')
-    },
-];
+async function sendPrompt(modelName, prompt, context) {
 
-(async () => {
+    // Instanzia Ollama
+    var ollama;
+    if (process.env.OLLAMA_URL)
+        ollama = new Ollama({ host: process.env.OLLAMA_URL }) // remote
+    else
+        ollama = new Ollama(); // Locale (default)
+
+    // se viene passato il file di context deve sostituirlo in system
+    let promptContent = fs.readFileSync(prompt, 'utf8');
+    if (context != null) {
+        const contextContent = fs.readFileSync(context, 'utf8');
+        // Sostituisce il placeholder §CONTEXT§ con il valore di context
+        promptContent = promptContent.replace(/§CONTEXT§/g, contextContent);
+    }
+
+    const userMessages = [
+        {
+            role: 'user',
+            content: promptContent
+        },
+    ];
 
     const startTime = new Date();
     console.log(`Start time: ${startTime.toLocaleTimeString()}`);
 
-    const res = await chatWithStreaming(modelName, userMessages);
+    const res = await chatWithStreaming(ollama, modelName, userMessages);
 
     const endTime = new Date();
     const timeDiff = (endTime - startTime) / 1000; // Tempo in secondi
@@ -80,10 +85,11 @@ const userMessages = [
     console.log(`End time: ${endTime.toLocaleTimeString()}`);
     console.log(`Time taken: ${timeDiff} seconds (${minutes} minutes)`);
 
-    console.log(`loading in triplestore`);
-    // Carica il file RDF nel repository GraphDB
-    await publishRDF(process.env.OUTPUT_FILE , process.env.REPOSITORY_URL, process.env.REPOSITORY_ID , process.env.REPOSITORY_GRAPH, true);
-    console.log(`Done`);
+}
 
+export { sendPrompt };
 
-})();
+// Esempio di utilizzo
+//const modelName = process.env.OLLAMA_MODEL_TO; // Nome del modello
+//const prompt = process.env.OLLAMA_PROMPT; // Percorso del file di input
+//await sendPrompt(modelName, prompt);
