@@ -1,0 +1,64 @@
+```turtle
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://localhost/onto#> .
+
+:Apiario a owl:Class ;
+    rdfs:label "Apiario"^^xsd:string ;
+    rdfs:comment "Il luogo dove vengono collocate le arnie di api Apis mellifera."^^xsd:string .
+
+:AgricolturaBiologica a owl:Class ;
+    rdfs:label "Agricoltura Biologica"^^xsd:string ;
+    rdfs:comment "Tipologia di agricoltura che richiede l'impollinazione."^^xsd:string ;
+    rdfs:subClassOf :Apiario .
+
+:Apicoltore a owl:Class ;
+    rdfs:label "Apicoltore"^^xsd:string ;
+    rdfs:comment "Persona che gestisce gli apiari."^^xsd:string .
+
+:Agricoltore a owl:Class ;
+    rdfs:label "Agricoltore"^^xsd:string ;
+    rdfs:comment "Persona che coltiva la terra."^^xsd:string .
+
+:Api a owl:Class ;
+    rdfs:label "Api"^^xsd:string ;
+    rdfs:comment "Insetto pollinizzatore."^^xsd:string .
+
+:Arnia a owl:Class ;
+    rdfs:label "Arnia"^^xsd:string ;
+    rdfs:comment "Struttura dove vivono le api."^^xsd:string ;
+    rdfs:subClassOf :Apiario .
+
+:Miele a owl:Class ;
+    rdfs:label "Miele"^^xsd:string ;
+    rdfs:comment "Prodotto delle api."^^xsd:string .
+
+:Nettare a owl:Class ;
+    rdfs:label "Nettare"^^xsd:string ;
+    rdfs:comment "Alimento delle api."^^xsd:string .
+
+:Polline a owl:Class ;
+    rdfs:label "Polline"^^xsd:string ;
+    rdfs:comment "Fonte di proteine per le api."^^xsd:string .
+
+:Impollinazione a owl:Class ;
+    rdfs:label "Impollinazione"^^xsd:string ;
+    rdfs:comment "Processo mediante il quale le api trasferiscono il polline da un fiore all'altro."^^xsd:string ;
+    rdfs:subClassOf :Apiario .
+
+:Alveare a owl:Class ;
+    rdfs:label "Alveare"^^xsd:string ;
+    rdfs:comment "Struttura all'interno dell'arnia dove le api vivono e lavorano."^^xsd:string ;
+    rdfs:subClassOf :Arnia .
+
+:AreaApiaria a owl:Class ;
+    rdfs:label "Area Apiaria"^^xsd:string ;
+    rdfs:comment "Aree circostanti all'apiario che forniscono nettare e polline."^^xsd:string ;
+    rdfs:subClassOf :Apiario .
+
+:Coltura a owl:Class ;
+    rdfs:label "Coltura"^^xsd:string ;
+    rdfs:comment "Tipo di vegetazione coltivata."^^xsd:string ;
+    rdfs:subClassOf :AreaApiaria .
+```

@@ -1,0 +1,32 @@
+# RUOLO
+Sei un esperto di modellazione di tesauri e tassonomie.
+
+# COMPITO
+Hai a disposizione questa lista di concetti
+
+§CONTEXT§
+
+Il tuo compito è organizzare questo elenco di concetti gerarchicamente, le relazioni di gerarchia vanno dedotte dall'INPUT seguendo le REGOLE
+
+#REGOLE
+
+1. un concetto è figlio di un altro se ha un signficato più specializzato dell'altro (es: Forbice: Forbice da seta)
+2. un concetto è figlio di un altro se rappresenta un insieme più piccolo dell'altro (es: Mammifero: Cane)
+
+# OUTPUT
+Il risultato non deve contenere commenti o spiegazioni. 
+Inizia con GERARCHIA: e poi a seguire la lista dei concetti.
+Per ogni concetto segue ":" la lista dei suoi figli nella forma seguente
+- concetto : elenco dei figli separati da virgole
+- concetto : elenco dei figli separati da virgole
+
+# RACCOMANDAZIONI
+
+ 1. La tassonomia **DEVE** essere corretta, completa, coerente e consistente.
+ 2. La tassonomia **DEVE** contere solo i concetti elencati in CONCETTI
+ 3. Alcuni concetti della tassonomi **POSSONO** non avere figli
+ 4. un concetto **NON COMPARE MAI** nella lista dei suoi figli 
+
+
+
+
