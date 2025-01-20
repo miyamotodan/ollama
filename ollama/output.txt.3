@@ -1,64 +1,73 @@
 ```turtle
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix : <http://localhost/onto#> .
 
-:Apiario a owl:Class ;
-    rdfs:label "Apiario"^^xsd:string ;
-    rdfs:comment "Il luogo dove vengono collocate le arnie di api Apis mellifera."^^xsd:string .
+:StazioneAppaltante a owl:Class ;
+    rdfs:label "Stazione appaltante"^^xsd:string ;
+    rdfs:comment "Entità che procede all'acquisizione di forniture, servizi e lavori."^^xsd:string .
 
-:AgricolturaBiologica a owl:Class ;
-    rdfs:label "Agricoltura Biologica"^^xsd:string ;
-    rdfs:comment "Tipologia di agricoltura che richiede l'impollinazione."^^xsd:string ;
-    rdfs:subClassOf :Apiario .
+:CentraleDiCommittenzaQualificata a owl:Class ;
+    rdfs:label "Centrale di committenza qualificata"^^xsd:string ;
+    rdfs:comment "Entità che fornisce strumenti di acquisto messi a disposizione delle stazioni appaltanti."^^xsd:string .
 
-:Apicoltore a owl:Class ;
-    rdfs:label "Apicoltore"^^xsd:string ;
-    rdfs:comment "Persona che gestisce gli apiari."^^xsd:string .
+:SoggettoAggregatore a owl:Class ;
+    rdfs:label "Soggetto aggregatore"^^xsd:string ;
+    rdfs:comment "Entità che fornisce strumenti di acquisto messi a disposizione delle stazioni appaltanti."^^xsd:string .
 
-:Agricoltore a owl:Class ;
-    rdfs:label "Agricoltore"^^xsd:string ;
-    rdfs:comment "Persona che coltiva la terra."^^xsd:string .
+:StrumentoDiAcquistoENegoziazione a owl:Class ;
+    rdfs:label "Strumento di acquisto e negoziazione"^^xsd:string ;
+    rdfs:comment "Strumento utilizzato per contenere la spesa."^^xsd:string .
 
-:Api a owl:Class ;
-    rdfs:label "Api"^^xsd:string ;
-    rdfs:comment "Insetto pollinizzatore."^^xsd:string .
+:AmbitoDellAcquisizione a owl:Class ;
+    rdfs:label "Ambito dell'acquisizione"^^xsd:string ;
+    rdfs:comment "L'ambito dell'acquisizione è quello delle forniture, servizi e lavori."^^xsd:string .
 
-:Arnia a owl:Class ;
-    rdfs:label "Arnia"^^xsd:string ;
-    rdfs:comment "Struttura dove vivono le api."^^xsd:string ;
-    rdfs:subClassOf :Apiario .
+:SogliaPerGliAffidamentiDiretti a owl:Class ;
+    rdfs:label "Soglia per gli affidamenti diretti"^^xsd:string ;
+    rdfs:comment "Soglia prevista per gli affidamenti diretti non specificata nel testo."^^xsd:string .
 
-:Miele a owl:Class ;
-    rdfs:label "Miele"^^xsd:string ;
-    rdfs:comment "Prodotto delle api."^^xsd:string .
+:AcquisizioneDiretaDiFornitureEServizi a owl:Class ;
+    rdfs:label "Acquisizione diretta di forniture e servizi"^^xsd:string ;
+    rdfs:comment "Processo di acquisizione di forniture e servizi."^^xsd:string .
 
-:Nettare a owl:Class ;
-    rdfs:label "Nettare"^^xsd:string ;
-    rdfs:comment "Alimento delle api."^^xsd:string .
+:AffidamentoDiLavori a owl:Class ;
+    rdfs:label "Affidamento di lavori"^^xsd:string ;
+    rdfs:comment "Processo di affidamento di lavori."^^xsd:string .
 
-:Polline a owl:Class ;
-    rdfs:label "Polline"^^xsd:string ;
-    rdfs:comment "Fonte di proteine per le api."^^xsd:string .
+:UtilizzoDiStrumentiDiAcquistoENegoziazione a owl:Class ;
+    rdfs:label "Utilizzo di strumenti di acquisto e negoziazione"^^xsd:string ;
+    rdfs:comment "Uso di strumenti di acquisto e negoziazione."^^xsd:string .
 
-:Impollinazione a owl:Class ;
-    rdfs:label "Impollinazione"^^xsd:string ;
-    rdfs:comment "Processo mediante il quale le api trasferiscono il polline da un fiore all'altro."^^xsd:string ;
-    rdfs:subClassOf :Apiario .
+:ResponsabileDi a owl:ObjectProperty ;
+    rdfs:domain :StazioneAppaltante ;
+    rdfs:range :AcquisizioneDiretaDiFornitureEServizi, :AffidamentoDiLavori ;
+    rdfs:label "è responsabile di"^^xsd:string ;
+    rdfs:comment "Relazione che indica la responsabilità della stazione appaltante su determinati processi."^^xsd:string .
 
-:Alveare a owl:Class ;
-    rdfs:label "Alveare"^^xsd:string ;
-    rdfs:comment "Struttura all'interno dell'arnia dove le api vivono e lavorano."^^xsd:string ;
-    rdfs:subClassOf :Arnia .
+:HaRuolo a owl:ObjectProperty ;
+    rdfs:domain :StazioneAppaltante ;
+    rdfs:range :StazioneAppaltante ;
+    rdfs:label "ha ruolo"^^xsd:string ;
+    rdfs:comment "Relazione che indica il ruolo della stazione appaltante."^^xsd:string .
 
-:AreaApiaria a owl:Class ;
-    rdfs:label "Area Apiaria"^^xsd:string ;
-    rdfs:comment "Aree circostanti all'apiario che forniscono nettare e polline."^^xsd:string ;
-    rdfs:subClassOf :Apiario .
+:FornisceStrumentiDiAcquistoA a owl:ObjectProperty ;
+    rdfs:domain :CentraleDiCommittenzaQualificata, :SoggettoAggregatore ;
+    rdfs:range :StazioneAppaltante ;
+    rdfs:label "fornisce strumenti di acquisto a"^^xsd:string ;
+    rdfs:comment "Relazione che indica la fornitura di strumenti di acquisto da parte di entità qualificate."^^xsd:string .
 
-:Coltura a owl:Class ;
-    rdfs:label "Coltura"^^xsd:string ;
-    rdfs:comment "Tipo di vegetazione coltivata."^^xsd:string ;
-    rdfs:subClassOf :AreaApiaria .
+:PrevistoDalleVigentiDisposizioniInMateriaDiContenimentoDellaSpesa a owl:ObjectProperty ;
+    rdfs:domain :StrumentoDiAcquistoENegoziazione ;
+    rdfs:range :UtilizzoDiStrumentiDiAcquistoENegoziazione ;
+    rdfs:label "è previsto dalle vigenti disposizioni in materia di contenimento della spesa"^^xsd:string ;
+    rdfs:comment "Relazione che indica la previsione delle disposizioni vigenti sulla utilizzazione di strumenti di acquisto e negoziazione."^^xsd:string .
+
+:SogliaNonSpecificataNelTesto a owl:ObjectProperty ;
+    rdfs:domain :SogliaPerGliAffidamentiDiretti ;
+    rdfs:range :SogliePerGliAffidamentiDiretti ;
+    rdfs:label "non è specificata nel testo"^^xsd:string ;
+    rdfs:comment "Relazione che indica che la soglia per gli affidamenti diretti non è specificata nel testo."^^xsd:string .
 ```

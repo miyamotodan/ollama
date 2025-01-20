@@ -7,11 +7,9 @@ async function createModel(model, system, context) {
 
     var ollama;
     if (process.env.OLLAMA_URL) {
-        console.log("######1",process.env.OLLAMA_URL);
         ollama = new Ollama({ host: process.env.OLLAMA_URL }) // remote
     }
     else {
-        console.log("######2",process.env.OLLAMA_URL);
         ollama = new Ollama(); // Locale (default)
     }
 
@@ -24,15 +22,13 @@ async function createModel(model, system, context) {
     }
 
     // 'qwen2.5-coder:14b', 'yi-coder:9b-chat-q8_0', 'qwen2.5-coder:7b-instruct-q8_0', 'qwen2.5-coder:14b-instruct-q8_0', 'llama3.2'
-    const modelfile = `
-FROM ${model}
+    const modelfile = `FROM ${model}
 PARAMETER num_ctx ${process.env.OLLAMA_NUM_CTX}
 PARAMETER seed ${process.env.OLLAMA_SEED}
 PARAMETER temperature ${process.env.OLLAMA_TEMPERATURE}
 SYSTEM """
 ${systemContent}
-"""
-    `;
+"""`;
     
     console.log("=========================================")
     console.log(modelfile)

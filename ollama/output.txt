@@ -1,30 +1,89 @@
-GERARCHIA:
-- aggregazioni : 
-  - lavori d’importo pari o inferiore a 500.000 euro
-  - ordini a valere
-- centralizzazione delle committenze :
-  - strumenti di acquisto
-  - negoziazione
-  - soglie previste
-  - affidamenti diretti
-  - qualificazione
-    - requisiti necessari
-    - regolamento
-      - Conferenza unificata
+```turtle
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.org/ontologia#> .
 
-CONCETTI:
-- aggregazioni : gruppi di stazioni appaltanti che collaborano per affidare lavori o forniture
-- centralizzazione delle committenze : processo di raccolta e gestione delle richieste di acquisto in un'unica entità centrale
-- strumenti di acquisto : meccanismi utilizzati per effettuare gli ordini di acquisto
-- negoziazione : processo di trattativa per determinare i termini del contratto di acquisto
-- soglie previste : limiti di importo oltre cui è necessario un processo di qualificazione
-- affidamenti diretti : contratti tra stazioni appaltanti e fornitori o servizi senza intermediari
-- lavori d’importo pari o inferiore a 500.000 euro : tipologia di lavori per i quali è consentita l'acquisizione diretta
-- ordini a valere : documenti che conferiscono il diritto di acquisto su un determinato importo
-- centrali di committenza qualificate : entità autorizzate a gestire gli ordini a valere
-- soggetti aggregatori : intermediari che rappresentano le stazioni appaltanti per affidare lavori o forniture
-- qualificazione : processo di verifica delle competenze e delle capacità di una stazione appaltante per affidare lavori o forniture
-- codice identificativo di gara (CIG) : numero univoco assegnato a ogni gara d'appalto
-- requisiti necessari : criteri che devono essere soddisfatti per ottenere la qualificazione
-- regolamento : documenti ufficiali che stabiliscono le norme e procedure da seguire
-- Conferenza unificata : riunione di rappresentanti delle diverse entità coinvolte per discutere e affinare i termini del regolamento
+:StazioneAppaltante a owl:Class ;
+    rdfs:label "Stazione Appaltante"@it ;
+    rdfs:comment "Rappresenta una stazione appaltante che può procedere all'acquisizione di forniture e servizi."@it .
+
+:AcquisizioneFornitureServizi a owl:Class ;
+    rdfs:label "Acquisizione Forniture e Servizi"@it ;
+    rdfs:comment "Rappresenta l'azione di acquisire forniture e servizi da parte di una stazione appaltante."@it .
+
+:AffidamentoLavori a owl:Class ;
+    rdfs:label "Affidamento Lavori"@it ;
+    rdfs:comment "Rappresenta l'azione di affidare lavori da parte di una stazione appaltante."@it .
+
+:SogliaAcquisizioneFornitureServizi a owl:DatatypeProperty ;
+    rdfs:domain :StazioneAppaltante ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "Soglia Acquisizione Forniture e Servizi"@it ;
+    rdfs:comment "Indica l'importo massimo per l'acquisizione di forniture e servizi."@it .
+
+:SogliaAffidamentoLavori a owl:DatatypeProperty ;
+    rdfs:domain :StazioneAppaltante ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "Soglia Affidamento Lavori"@it ;
+    rdfs:comment "Indica l'importo massimo per l'affidamento di lavori."@it .
+
+:Ordine a owl:Class ;
+    rdfs:label "Ordine"@it ;
+    rdfs:comment "Rappresenta un ordine effettuato da una stazione appaltante su strumenti di acquisto."@it .
+
+:StrumentoAcquisto a owl:Class ;
+    rdfs:label "Strumento Acquisto"@it ;
+    rdfs:comment "Rappresenta uno strumento di acquisto utilizzato per l'acquisizione di forniture e servizi."@it .
+
+:CentraliCommittenzaQualificate a owl:Class ;
+    rdfs:label "Centrali Committenza Qualificate"@it ;
+    rdfs:comment "Rappresenta le centrali di committenza qualificate che mettono a disposizione strumenti di acquisto."@it .
+
+:SoggettiAggregatori a owl:Class ;
+    rdfs:label "Soggetti Aggregatori"@it ;
+    rdfs:comment "Rappresenta i soggetti aggregatori che mettono a disposizione strumenti di acquisto."@it .
+
+:acquisisceFornitureServizi a owl:ObjectProperty ;
+    rdfs:domain :StazioneAppaltante ;
+    rdfs:range :AcquisizioneFornitureServizi ;
+    rdfs:label "acquisisce forniture e servizi"@it ;
+    rdfs:comment "Indica che una stazione appaltante acquisisce forniture e servizi."@it .
+
+:affidaLavori a owl:ObjectProperty ;
+    rdfs:domain :StazioneAppaltante ;
+    rdfs:range :AffidamentoLavori ;
+    rdfs:label "affida lavori"@it ;
+    rdfs:comment "Indica che una stazione appaltante affida lavori."@it .
+
+:effettuaOrdine a owl:ObjectProperty ;
+    rdfs:domain :StazioneAppaltante ;
+    rdfs:range :Ordine ;
+    rdfs:label "effettua ordine"@it ;
+    rdfs:comment "Indica che una stazione appaltante effettua un ordine su strumenti di acquisto."@it .
+
+:strumentoAcquisto a owl:ObjectProperty ;
+    rdfs:domain :Ordine ;
+    rdfs:range :StrumentoAcquisto ;
+    rdfs:label "strumento acquisto"@it ;
+    rdfs:comment "Indica lo strumento di acquisto utilizzato per l'ordine."@it .
+
+:strumentiDisponibili a owl:ObjectProperty ;
+    rdfs:domain :CentraliCommittenzaQualificate ;
+    rdfs:range :StrumentoAcquisto ;
+    rdfs:label "strumenti disponibili"@it ;
+    rdfs:comment "Indica gli strumenti di acquisto messi a disposizione dalle centrali di committenza qualificate."@it .
+
+:strumentiDisponibili a owl:ObjectProperty ;
+    rdfs:domain :SoggettiAggregatori ;
+    rdfs:range :StrumentoAcquisto ;
+    rdfs:label "strumenti disponibili"@it ;
+    rdfs:comment "Indica gli strumenti di acquisto messi a disposizione dai soggetti aggregatori."@it .
+
+:SogliaAcquisizioneFornitureServizi owl:defaultRange xsd:decimal .
+:SogliaAffidamentoLavori owl:defaultRange xsd:decimal .
+
+:StazioneAppaltante :SogliaAcquisizioneFornitureServizi "100000"^^xsd:decimal ;
+    :SogliaAffidamentoLavori "500000"^^xsd:decimal .
+```

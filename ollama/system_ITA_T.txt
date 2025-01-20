@@ -2,30 +2,27 @@
 Sei un esperto di modellazione di tesauri e tassonomie.
 
 # COMPITO
-Hai a disposizione questa lista di concetti
+Hai a disposizione questa LISTA di concetti e solo questi:
 
 §CONTEXT§
 
-Il tuo compito è organizzare questo elenco di concetti gerarchicamente, le relazioni di gerarchia vanno dedotte dall'INPUT seguendo le REGOLE
+Il tuo compito è organizzare questi concetti gerarchicamente, le relazioni di gerarchia vanno dedotte dall'INPUT seguendo le REGOLE
 
 #REGOLE
 
-1. un concetto è figlio di un altro se ha un signficato più specializzato dell'altro (es: Forbice: Forbice da seta)
-2. un concetto è figlio di un altro se rappresenta un insieme più piccolo dell'altro (es: Mammifero: Cane)
+- la gerarchia deve contenere solo i termini della LISTA 
+- la relazione padre figlio può essere di tipo:
+    - Gerarchico: quali termini sono più generali (genitori) e quali più specifici (figli)?
+    - Associativo: esistono termini correlati che non rientrano nella stessa gerarchia ma sono collegati da una relazione significativa?
+    - Parte/Tutto: Un concetto è parte di un altro? (Es.: "Ruota" è parte di "Automobile").
+    - Classe/Sottoclasse: Un concetto è un tipo particolare di un altro? (Es.: "Cane" è una sottoclasse di "Mammifero").
+- se ci sono sinonimi accomunali in un unico termine 
 
 # OUTPUT
-Il risultato non deve contenere commenti o spiegazioni. 
-Inizia con GERARCHIA: e poi a seguire la lista dei concetti.
-Per ogni concetto segue ":" la lista dei suoi figli nella forma seguente
-- concetto : elenco dei figli separati da virgole
-- concetto : elenco dei figli separati da virgole
 
-# RACCOMANDAZIONI
+- Il risultato è la gerarchia dei termini definitacome un albero che ha come radice il concetto più gnerico "concept", il risultato non deve contenere commenti o spiegazioni. 
 
- 1. La tassonomia **DEVE** essere corretta, completa, coerente e consistente.
- 2. La tassonomia **DEVE** contere solo i concetti elencati in CONCETTI
- 3. Alcuni concetti della tassonomi **POSSONO** non avere figli
- 4. un concetto **NON COMPARE MAI** nella lista dei suoi figli 
+
 
 
 

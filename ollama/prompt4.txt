@@ -1,0 +1,37 @@
+L'elicottero (dal greco: ἕλιξ [helix], spira, spirale, e πτερόν [pterón], ala) è un tipo di aerogiro, adibito al trasporto di persone e cose per scopi civili e/o militari, in cui il sollevamento e la spinta sono forniti da un rotore che gira orizzontalmente. È generalmente dotato di uno o più motori a pistoni o a turbina che azionano un complesso di pale che gli permettono di sollevarsi e abbassarsi verticalmente, restare fermo in volo, spostarsi lateralmente, all'indietro o in avanti e compiere voli similmente a quanto fa un aeroplano, ma con maggiori flessibilità e manovrabilità.
+
+Più tecnicamente l'elicottero è caratterizzato da un'ala rotante, denominata rotore, che consente il decollo e l'atterraggio verticali senza necessità di pista e il volo a punto fisso, ovvero un volo sostentato a velocità nulla e quota costante, che ne rappresentano dunque i vantaggi principali rispetto all'aeroplano in molte situazioni di pattugliamento e di emergenza. Rispetto all'aeroplano ha un'autonomia minore consentendo quindi percorsi più brevi, raggiunge in media velocità e quote più basse, generalmente fino a 300 km/h e circa 6 000 m di quota (sebbene con l'avanzare della tecnologia diversi elicotteri arrivano a 7 000 m di quota, come ad esempio quelli che operano regolarmente fino al campo 2 dell'Everest. Il record di tangenza di un elicottero appartiene all'Aérospatiale SA 315B Lama con una tangenza massima di 12 442 m). Rappresenta oggi la categoria di aeromobili più diffusa dopo l'aeroplano, adibito a molti usi civili e militari.[senza fonte]
+
+Gli elicotteri non sono a rigore dei velivoli, sebbene vengano talvolta erroneamente indicati in tal modo; essi appartengono infatti ad un'altra categoria di aerodine, denominati aerogiri.
+
+Rotore
+
+Il rotore è il cuore dell'elicottero dato che ha la funzione non solo di generare la trazione necessaria a sostenere l'elicottero in volo ma anche la propulsione necessaria a vincere la resistenza aerodinamica e le forze e i momenti necessari a manovrarlo (solo per comparazione, in un aereo queste tre funzioni sono assolte da tre componenti ben distinte, ovverosia l'ala, il propulsore ed i piani di coda rispettivamente). Nel seguito sono elencati gli elementi principali del rotore.
+
+Testa del rotore o mozzo
+Solitamente in titanio o materiale composito, è il complesso a cui sono attaccate le pale e che si innesta sull'albero.
+
+Albero
+Solitamente in materiale metallico, ha sezione circolare ed è cavo all'interno per limitarne il peso. Una estremità si innesta nella trasmissione mentre all'altra si innesta (oppure è un tutt'uno con) la testa del rotore.
+
+Cerniere
+
+È lo snodo meccanico attraverso il quale le pale sono collegate al mozzo. Nei primi elicotteri degli anni 1950 esse erano delle semplici cerniere a cuscinetti. A causa delle elevate forze centrifughe che su di esse si scaricavano dalle pale, la loro usura era piuttosto veloce e comportava una frequente sostituzione, con elevati costi di manutenzione. Una prima soluzione a questo problema fu l'eliminazione completa delle cerniere di flappeggio e di ritardo attraverso la costruzione di pale dotate di una radice molto soffice ed in grado quindi di lasciare flappeggiare e ritardare la pala liberamente anche senza la presenza fisica di una cerniera; precursore di questa soluzione fu il MBB Bo 105. Rotori di questo tipo si definiscono hingeless (senza cerniera, appunto) o semirigidi. Nei rotori semirigidi la cerniera di variazione passo, con i relativi cuscinetti, viene mantenuta essendo meno soggetta ad usura non dovendo supportare direttamente le forze centrifughe. In rotori più moderni la cerniera di variazione passo è sostituita da una più semplice cerniera in materiale elastomerico oppure è anch'essa eliminata in favore di una radice della pala costruita in modo tale da lasciare alla pala completa libertà di rotazione attorno ai tre assi di flappeggio, di ritardo e di variazione passo. Rotori di questo tipo si definiscono bearingless (senza cuscinetti) o rigidi, che è una definizione fuoriviante dato che, all'opposto, la radice della pala è in realtà soffice (un rotore propriamente rigido, ovvero con una radice della pala effettivamente rigida e collegata rigidamente al mozzo, è quello ad esempio del Sikorsky X2).
+
+Smorzatori
+
+Come visto il rotore è fisicamente un sistema in risonanza, tuttavia i movimenti delle pale attorno alle cerniere non mostrano i fenomeni distruttivi tipici della risonanza (ben evidenziati ad esempio dal famoso crollo del Ponte di Tacoma), questo perché i relativi movimenti vengono smorzati. In particolare, il moto attorno:
+
+alla cerniera di flappeggio viene fortemente smorzato dalle forze aerodinamiche.
+alla cerniera di variazione passo viene smorzato dal collegamento meccanico e/o idraulico con i comandi di volo attraverso il piatto oscillante.
+alla cerniera di ritardo non è invece sufficientemente smorzato aerodinamicamente e/o meccanicamente e quando l'elicottero è a terra esso si può accoppiare con il movimento dovuto all'elasticità dei carrelli d'atterraggio generando una pericolosa risonanza detta "ground resonance" la quale può portare alla distruzione della struttura in pochi secondi; per tale motivo si adottano smorzatori viscosi attorno a questa cerniera.
+
+Pala
+
+La pala è l'elemento che genera tutte le forze aerodinamiche e che le trasmette al mozzo e di conseguenza all'elicottero. La forma ed il numero delle pale sono definiti da requisiti meccanici ed aerodinamici spesso contrastanti. Senza entrare nel merito, in generale:
+
+per limitare la resistenza aerodinamica indotta, le pale devono avere un elevato allungamento alare; per soddisfare tale requisito l'apertura della pala deve quindi essere la più elevata possibile e la corda la più piccola possibile, esattamente come avviene per l'ala degli alianti.
+la lunghezza delle pale deve comunque essere contenuta per limitarne il peso, mentre la corda deve essere superiore ad un certo valore per massimizzare l'efficienza aerodinamica, che è bassa per corde basse (per i modelli di elicottero radiocomandati, ad esempio, l'efficienza aerodinamica è piuttosto scarsa).
+la velocità Vr dovuta alla rotazione attorno al mozzo, aumenta man mano che ci si sposta dalla radice alla estremità della pala, essendo nulla alla radice. Dato che la portanza va col quadrato della velocità, essa assumerebbe valori via via maggiori spostandosi verso l'estremità della pala; si compensa questo effetto svergolando la pala lungo l'apertura in modo tale che l'angolo d'incidenza sia via via minore.
+la superficie totale delle pale è determinata, in maniera complessa, in base alle prestazioni che l'elicottero deve essere in grado di sviluppare in volo. Una volta determinata, essa viene suddivisa fra le pale il cui numero è determinato oltre che dai requisiti appena elencati, anche da altri; ad esempio, il loro numero deve essere il più basso possibile per contenere sia il peso complessivo del rotore, sia il suo costo, sia la sua resistenza aerodinamica (un mozzo con poche pale è aerodinamicamente più "pulito"); deve essere elevato per limitare le vibrazioni prodotte dalle pale (che è proporzionale al numero delle pale stesse); molte pale implica corde più basse e quindi minore efficienza aerodinamica; corde basse implica anche minore spazio per la struttura della pala che quindi tende a deformarsi troppo.
+anche la forma del profilo alare è determinato da requisiti contrastanti.
